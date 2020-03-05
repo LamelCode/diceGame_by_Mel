@@ -94,18 +94,18 @@ input[type=text], select {
 }
 
 .wWoman {
-  background-image: url("dice-images/womanWhite.png");
+  background-image: url("../dice-images/womanWhite.png");
   background-repeat: no-repeat;
   background-size: 120px;
 
 }
 .mWoman {
-  background-image: url("dice-images/womanMuslim.png");
+  background-image: url("../dice-images/womanMuslim.png");
   background-repeat: no-repeat;
   background-size: 120px;
 }
 .cWoman {
-  background-image: url("dice-images/woman.png");
+  background-image: url("../dice-images/woman.png");
   background-repeat: no-repeat;
   background-size: 120px;
 }
