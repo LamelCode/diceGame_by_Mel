@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Dice Game2</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="style2.css">
+  <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Nosifer|Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Jockey+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <!--To be defined "The journey of a thousand miles begins with a single step and mine just began with this game... "-->
+  </header>
+  <div class="intro-sec">
+    <div class="container-fluid">
+      <div class="introSec">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 diceCon">
+            <p class="title">Ready  To</p>
+          <img class="img-fluid mx-auto d-block diceWR" src="dice-images/diceWhite.png" alt="Two Dice">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 btn-sec">
+          <button type="button" class="btn btn-outline-danger goBtn"  onclick="this.disabled = true; enablePlay()">YES!</button>
+        </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 quesCon">
+            <div class="quest-sec">
+                <img class="img-fluid mx-auto d-block quesMark" src="dice-images/question.png" alt="Question Mark">
+            </div>
+            <form class="playerForm">
+              <div class="container playerDetails">
+                <div class="imgcontainer">
+                  <img src="dice-images/womanBlack.png" alt="Black Woman" class="bWoman">
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 player1">
+                  <label><b>Name</b></label>
+                  <input id="player" type="text" placeholder="Enter a player name" autocomplete="off" required>
+                </div>
+                <hr>
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 row otherPlayers">
+                  <div class="col-xl-4 col-lg- col-md-4 col-sm-4 player2">
+                    <input type="button" class="wWoman woman" value="Mary" onclick="playerSelected(this.value)"></input>
+                    <!-- <img src="dice-images/womanWhite.png" alt="Black Woman" class="wWoman"> -->
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 player3">
+                    <input type="button" class="mWoman woman" value="Nunu" onclick="playerSelected(this.value)"></input>
+                    <!-- <img src="dice-images/womanMuslim.png" alt="Black Woman" class="mWoman"> -->
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 player4">
+                    <input type="button" class="cWoman woman" value="Ornel" onclick="playerSelected(this.value)"></input>
+                    <!-- <img src="dice-images/woman.png" alt="Black Woman" class="woman"> -->
+                  </div>
+                </div>
+                <div class="choosePlayer">
+                  <label for="playerChoice"><b>Choose your opponent</b></label>
+                </div>
+                <hr>
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 chooseDice">
+                  <label>How many dice do you want to play with ? </label>
+                  <select id="dice" required>
+                    <option value="dice1">1</option>
+                    <option value="dice2">2</option>
+                    <option value="dice3">3</option>
+                  </select>
+                </div>
+                <hr>
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 submitBtn">
+                  <button class="btn btn-outline-primary" type="submit">GO</button>
+                </div>
+              </div>
+            </form>
+        </div>
+      </div>
+      <div class="playgound">
+        <div class="row score-board align-items-start">
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 info">
+            <h4>Round</h4>
+            <div class="score-con">
+              <h3 class="score" id="round">0</h3>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 info">
+            <h4>Throws Per Round</h4>
+            <div class="score-con">
+              <h3 class="score" id="throwsPerGame">10</h3>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 info">
+          <h4>Round per Game</h4>
+          <div class="score-con">
+            <h3 class="score" id="roundperGame">5</h3>
+          </div>
+          </div>
+        </div>
+        <div class="row player-sec align-items-start">
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mainPlayer">
+            <img src="dice-images/womanBlack.png" alt="Black Woman" class="bWoman woman1">
+            <h5 id="nameMainPlayer">Melaine</h5>
+            <div class="winner1">
+              <h3 class="points" id="points1">0</h3>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4  win-msg">
+            <p id="winner-msg"></p>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4  opponent">
+            <img src="dice-images/womanMuslim.png" alt="Black Woman" class="bWoman woman2">
+              <h5 id="nameOpponent">xxx</h5>
+            <div class="winner2">
+              <h3 class="points" id="points2">0</h3>
+            </div>
+          </div>
+          </div>
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 row diceSection">
+            <!--Number of dice selected inserted dynamically with js function-->
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 diceP1" id="p1">
+
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 diceP2"  id="p2">
+
+            </div>
+          </div>
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 btnShake">
+              <input type="button" class="shakeBtn btn btn-outline-primary" value="SHAKE" onclick="buttonShake()"></input>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="index.js" charset="utf-8"></script>
+</body>
+
+</html>
