@@ -27,19 +27,19 @@ document.querySelector(".playerForm").addEventListener("submit", function(e) {
   // create and dynamically set image of opponent
   switch (playerSelected) {
     case "Mary":
-      addOppoImg("../dice-images/womanWhite.png", "woman2");
+      addOppoImg("dice-images/womanWhite.png", "woman2");
       addOpponentNameScore("nameOpponent", playerSelected);
       break;
     case "Nunu":
-      addOppoImg("../dice-images/womanMuslim.png", "woman2");
+      addOppoImg("dice-images/womanMuslim.png", "woman2");
       addOpponentNameScore("nameOpponent", playerSelected);
       break;
     case "Ornel":
-      addOppoImg("../dice-images/woman.png", "woman2");
+      addOppoImg("dice-images/woman.png", "woman2");
       addOpponentNameScore("nameOpponent", playerSelected);
       break;
     default:
-      addOppoImg("../dice-images/womanMuslim.png", "woman2");
+      addOppoImg("dice-images/womanMuslim.png", "woman2");
       addOpponentNameScore("nameOpponent", "Nunu");
   }
 
@@ -68,7 +68,7 @@ function addDiceImage(parentClass, elementTag, elementClass, diceNumber) {
     var p = document.querySelector("." + parentClass);
     var imageElem = document.createElement(elementTag);
     imageElem.setAttribute("class", elementClass);
-    imageElem.setAttribute("src", "../dice-images/dice" + diceNumber + ".png");
+    imageElem.setAttribute("src", "dice-images/dice" + diceNumber + ".png");
     p.appendChild(imageElem);
     document.querySelector("." + elementClass).classList.add(elementClass);
   }
@@ -131,7 +131,7 @@ function shakeDice(elemclass) {
   if (imageElems !== null || imageElems !== "") {
     for (var i = 0; i < imageElems.length; i++) {
       arrRandomDiceNum.push(Math.floor(Math.random() * 6) + 1)
-      imageElems[i].setAttribute("src", "../dice-images/dice" + arrRandomDiceNum[i] + ".png");
+      imageElems[i].setAttribute("src", "dice-images/dice" + arrRandomDiceNum[i] + ".png");
     }
   }
   return arrRandomDiceNum;
